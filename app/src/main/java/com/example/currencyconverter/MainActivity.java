@@ -21,15 +21,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void convertMoney(View view) {
-
-        Spinner spinner = (Spinner) findViewById(R.id.currencySpinner);
-        String selectedCurrency = spinner.getSelectedItem().toString();
-
         EditText moneyText = (EditText) (findViewById(R.id.usdTextBox));
-        double moneyDouble = Double.parseDouble(moneyText.getText().toString());
-        double result = convertCurrency(moneyDouble, selectedCurrency);
-        String stringResult = Double.toString(result);
-        Toast.makeText(getApplicationContext(), stringResult, Toast.LENGTH_SHORT).show();
+
+        if(moneyText.getText().toString().length() == 0 || !isNumeric(moneyText.getText().toString())){
+            moneyText.setError(null);
+            Toast.makeText(getApplicationContext(), "Please enter USD amount ", Toast.LENGTH_SHORT).show();
+        } else{
+            Spinner spinner = (Spinner) findViewById(R.id.currencySpinner);
+            String selectedCurrency = spinner.getSelectedItem().toString();
+
+
+            double moneyDouble = Double.parseDouble(moneyText.getText().toString());
+            double result = convertCurrency(moneyDouble, selectedCurrency);
+            String stringResult = Double.toString(result);
+            Toast.makeText(getApplicationContext(), stringResult, Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -57,5 +63,17 @@ public class MainActivity extends AppCompatActivity {
         } else
             return 0.00;
 
+    }
+
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 }
