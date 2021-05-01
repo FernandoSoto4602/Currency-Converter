@@ -25,11 +25,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="159dp"
         android:onClick="convertMoney"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usdTextBox" />
 
@@ -44,4 +45,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moneyButton"
         app:srcCompat="@drawable/money" />
+
+    <Spinner
+        android:id="@+id/currencySpinner"
+        android:layout_width="344dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="15dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/moneyButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:entries="@array/Currency_Type"
+        app:layout_constraintTop_toBottomOf="@+id/usdTextBox" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
