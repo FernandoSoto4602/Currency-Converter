@@ -1,2 +1,2 @@
 # CurrencyConverter
- Very Simple USD to Euro Converter
+ Very Simple USD to Multiple Currencies Converter
