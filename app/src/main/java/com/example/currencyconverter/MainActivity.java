@@ -49,26 +49,28 @@ public class MainActivity extends AppCompatActivity {
         // Creates a Double named result and converts the currency selected
         double result;
 
-        if (currency.equals("EUR")) {
-            result = amount * .85;
-            return result;
-        } else if (currency.equals("JPY")) {
-            result = amount * 109.30;
-            return result;
-        } else if (currency.equals("GBP")) {
-            result = amount * .72;
-            return result;
-        } else if (currency.equals("CHF")) {
-            result = amount * .91;
-            return result;
-        } else if (currency.equals("CAD")) {
-            result = amount * 1.23;
-            return result;
-        } else if (currency.equals("ZAR")) {
-            result = amount * 14.50;
-            return result;
-        } else
-            return 0.00;
+        switch (currency) {
+            case "EUR":
+                result = amount * .85;
+                return result;
+            case "JPY":
+                result = amount * 109.30;
+                return result;
+            case "GBP":
+                result = amount * .72;
+                return result;
+            case "CHF":
+                result = amount * .91;
+                return result;
+            case "CAD":
+                result = amount * 1.23;
+                return result;
+            case "ZAR":
+                result = amount * 14.50;
+                return result;
+            default:
+                return 0.00;
+        }
 
     }
 
